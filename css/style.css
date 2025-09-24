@@ -4,9 +4,12 @@ html {
 
 body {
     font-family: "darkmode-on", sans-serif;
-   background: #c7621e;
-background: radial-gradient(circle,rgba(199, 98, 30, 1) 0%, rgba(199, 158, 87, 1) 50%, rgba(199, 68, 68, 1) 100%);
-    color: rgb(255, 255, 255);
+    --bg-color: #3c0109;
+    --accent-color:#211600;
+    --text-color:#f9f5be;
+    --font-title: "relaxia", sans-serif;
+    --hover-color: rgb(1, 48, 255);
+    --link-color: rgb(9, 255, 157);
 }
 
 a {
@@ -31,6 +34,7 @@ section{
 h1{
     text-align: center;
     font-size: 2em;
+    
 }
 p {
     font-size: 1.2em;
