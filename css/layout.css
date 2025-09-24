@@ -1,0 +1,43 @@
+:root {
+    --bg-color: #3c0109;
+    --accent-color:#211600;
+    --text-color:#f9f5be;
+    --font-family: "darkmode-on", sans-serif;
+    --font-title: "relaxia", sans-serif;
+    --hover-color: rgb(1, 48, 255);
+    --link-color: rgb(9, 255, 157);
+
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var( --accent-color);
+    color: var(--text-color);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var( --font-family);
+}
+
+#main-nav {
+    display: flex;
+    margin-bottom: 41px;
+    justify-content: space-between;
+
+}
+.nav-link {
+    background-color: var( --accent-color);
+    color: var(--text-color);
+    transition:all 100ms ease-in;
+    padding: 10px;
+    margin: 3px;
+    display: inline-block;
+    border: 1px solid var(--link-color);
+    border-radius: 22px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: var(--hover-color);
+    color: var( --link-color);
+    transition:all 300ms ease-out;
+}
