@@ -27,6 +27,7 @@ h1, h2, h3 {
     font-family: "relaxia", sans-serif;
 }
 
+
 section{
     font-size: 18px;
 }
@@ -54,6 +55,6 @@ article {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 20rem;
     font-weight: 400;
 }

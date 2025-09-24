@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #3c0109;
+    --bg-color: #000000;
     --accent-color:#ffffff;
     --text-color:#000000;
     --font-family: "darkmode-on", sans-serif;
@@ -19,6 +19,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 30px;
 }
 
+
+
+p {
+    max-width: 60ch;
+}
 #main-nav {
     display: flex;
     margin-bottom: 41px;
@@ -44,3 +49,7 @@ h1, h2, h3, h4, h5, h6 {
     transition:all 300ms ease-out;
 }
 
+h3 {
+    font-size: 2rem;
+    font-weight: 400;
+}
