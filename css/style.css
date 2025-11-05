@@ -32,6 +32,10 @@ section{
     font-size: 18px;
 }
 
+img {
+    max-width: 100%;
+}
+
 h1{
     text-align: center;
     font-size: 2em;
