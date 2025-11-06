@@ -1,11 +1,11 @@
 :root {
     --font-family: "times-new-roman", sans-serif;
-    --bg-color: #0a0708;
-    --accent-color:#211600;
+    --bg-color: #1d1d1b;
+    --accent-color:#1d1d1b;
     --text-color:#ffffff;
     --font-title: "relaxia", sans-serif;
-    --hover-color: rgb(1, 48, 255);
-    --link-color: rgb(9, 255, 157);
+    --hover-color: rgb(37, 37, 37);
+    --link-color: #1d1d1b;
 }
 
 body {
