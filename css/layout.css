@@ -1,20 +1,32 @@
 :root {
-    --bg-color: #000000;
-    --accent-color:#ffffff;
-    --text-color:#000000;
-    --font-family: "darkmode-on", sans-serif;
+    --font-family: "times-new-roman", sans-serif;
+    --bg-color: #0a0708;
+    --accent-color:#211600;
+    --text-color:#ffffff;
     --font-title: "relaxia", sans-serif;
-    --hover-color: rgb(121, 1, 1);
-    --link-color: rgb(255, 9, 9);
-
+    --hover-color: rgb(1, 48, 255);
+    --link-color: rgb(9, 255, 157);
 }
 
 body {
     font-family: var(--font-family);
-    background-color: var( --accent-color);
+    background-color: var( --bg-color);
     color: var(--text-color);
 }
-h1, h2, h3, h4, h5, h6 {
+
+
+h1 {
+    font-family: var( --font-family);
+    margin-top: 20px;
+    font-size: 15rem;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding-left: 25px;
+}
+
+h2, h3, h4, h5, h6 {
     font-family: var( --font-family);
     margin-top: 30px;
 }

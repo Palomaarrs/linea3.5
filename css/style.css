@@ -2,14 +2,20 @@ html {
     font-size: 18px;
 }
 
-body {
-    font-family: "darkmode-on", sans-serif;
+:root {
+    --font-family: "times-new-roman", sans-serif;
     --bg-color: #3c0109;
     --accent-color:#211600;
     --text-color:#f9f5be;
     --font-title: "relaxia", sans-serif;
     --hover-color: rgb(1, 48, 255);
     --link-color: rgb(9, 255, 157);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var( --bg-color);
+    color: var(--text-color);
 }
 
 a {
