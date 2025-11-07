@@ -8,12 +8,18 @@
     --link-color: #1d1d1b;
 }
 
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 body {
     font-family: var(--font-family);
     background-color: var( --bg-color);
     color: var(--text-color);
 }
-
 
 h1 {
     font-family: var( --font-family);
@@ -39,6 +45,39 @@ img {
 p {
     max-width: 60ch;
 }
+
+/* Contenedor de la imagen de hero */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Imagen de hero, ajustada al contenedor */
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Caption de la imagen de hero con posición absolute dentro del contenedor */
+.hero-image figcaption {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-color);
+    padding: 10px;
+}
+
 #main-nav {
     display: flex;
     margin-bottom: 41px;
