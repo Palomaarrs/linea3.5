@@ -34,7 +34,7 @@ h1 {
     font-family: var( --font-family);
     margin-top: 20px;
     font-size: 8rem;
-    margin-left: 40px;
+    margin-left: 10%;
 }
 
 h2, h3, h4, h5, h6 {
@@ -120,8 +120,8 @@ p {
     display: flex;
     margin-bottom: 41px;
     justify-content: space-between;
-    margin-top: 60px;
     margin-bottom: 0px;
+    margin-top: 100px;
 
 }
 
@@ -182,7 +182,9 @@ h3 {
 }
 
 element.style {
-    position: fixed;
-    top: 0;
-    left: 0;
+    width: 60%;
+    float: right;
+    min-width: 290px;
+    margin-bottom: 15px;
+    margin-top: 23px;
 }
