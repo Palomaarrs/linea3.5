@@ -21,15 +21,20 @@ body {
     color: var(--text-color);
 }
 
-h1 {
-    font-family: var( --font-family);
-    margin-top: 20px;
-    font-size: 15rem;
+.fijo {
     position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
     padding-left: 25px;
+    font-size: 15rem;
+}
+
+h1 {
+    font-family: var( --font-family);
+    margin-top: 20px;
+    font-size: 8rem;
+    margin-left: 40px;
 }
 
 h2, h3, h4, h5, h6 {
@@ -43,7 +48,16 @@ img {
 
 
 p {
-    max-width: 60ch;
+    max-width: 83ch;
+    text-align: left;
+    
+    position: right;
+    bottom: 120px;
+    right: 40px;
+    width: 100%;
+    color: var(--text-color);
+    padding: 10px;
+    
 }
 
 /* Contenedor de la imagen de hero */
@@ -73,7 +87,6 @@ p {
     bottom: 0;
     right: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     color: var(--text-color);
     padding: 10px;
 }
@@ -166,4 +179,10 @@ h3 {
     border: 1px solid #bbb;
     cursor: pointer;
     box-sizing: border-box;
+}
+
+element.style {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
