@@ -188,3 +188,15 @@ element.style {
     margin-bottom: 15px;
     margin-top: 23px;
 }
+
+.inview-item {
+    opacity: 0;
+    transform: none;
+    transition: all 600ms ease-out;
+    transform: translateY(-20px);
+}
+
+.inview-item.inview {
+    opacity: 1;
+    transform: translateY(0px);
+}
