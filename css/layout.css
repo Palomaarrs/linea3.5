@@ -21,15 +21,20 @@ body {
     color: var(--text-color);
 }
 
-h1 {
-    font-family: var( --font-family);
-    margin-top: 20px;
-    font-size: 15rem;
+.fijo {
     position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
     padding-left: 25px;
+    font-size: 15rem;
+}
+
+h1 {
+    font-family: var( --font-family);
+    margin-top: 20px;
+    font-size: 8rem;
+    margin-left: 10%;
 }
 
 h2, h3, h4, h5, h6 {
@@ -43,7 +48,16 @@ img {
 
 
 p {
-    max-width: 60ch;
+    max-width: 83ch;
+    text-align: left;
+    
+    position: right;
+    bottom: 120px;
+    right: 40px;
+    width: 100%;
+    color: var(--text-color);
+    padding: 10px;
+    
 }
 
 /* Contenedor de la imagen de hero */
@@ -73,7 +87,6 @@ p {
     bottom: 0;
     right: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     color: var(--text-color);
     padding: 10px;
 }
@@ -81,8 +94,9 @@ p {
 #main-nav {
     display: flex;
     margin-bottom: 41px;
-    justify-content: space-between;
+    justify-content: right;
     margin-top: 40px;
+    container: 100%;
 
 }
 .nav-link {
@@ -102,8 +116,87 @@ p {
     color: var( --link-color);
     transition:all 300ms ease-out;
 }
+#footer-nav {
+    display: flex;
+    margin-bottom: 41px;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    margin-top: 100px;
+
+}
+
 
 h3 {
-    font-size: 2rem;
-    font-weight: 400;
+    display: flex;
+    margin-bottom: 41px;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.hero-image {
+    position:relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image figcaption {
+    font-size: 1.8rem;
+    font-style: italic;
+    text-align: right;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 120px;
+    right: 40px;
+    width: 100%;
+    color: var(--text-color);
+    padding: 10px;
+}
+
+.button, button, input[type=button], input[type=reset], input[type=submit] {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+element.style {
+    width: 60%;
+    float: right;
+    min-width: 290px;
+    margin-bottom: 15px;
+    margin-top: 23px;
+}
+
+.inview-item {
+    opacity: 0;
+    transform: none;
+    transition: all 600ms ease-out;
+    transform: translateY(-20px);
+}
+
+.inview-item.inview {
+    opacity: 1;
+    transform: translateY(0px);
 }
