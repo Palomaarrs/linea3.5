@@ -34,7 +34,7 @@ h1 {
     font-family: var( --font-family);
     margin-top: 20px;
     font-size: 8rem;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 h2, h3, h4, h5, h6 {
@@ -204,4 +204,18 @@ element.style {
 .inview-item.inview {
     opacity: 1;
     transform: translateY(0px);
+}
+
+.fijo-img {
+     width: 100%;
+    height: 100%;
+    object-fit: cover;  
+}
+
+.fijo-exp {
+    position: fixed;
+    top: 30%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 10rem;
 }
