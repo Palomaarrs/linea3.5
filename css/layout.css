@@ -109,8 +109,14 @@ p {
     border: 1px solid var(--link-color);
     border-radius: 22px;
     text-decoration: none;
+
 }
 
+.nav-link#back-link {
+
+    margin-right: auto;
+    float:left;
+}
 .nav-link:hover {
     background-color: var(--hover-color);
     color: var( --link-color);
@@ -193,7 +199,8 @@ element.style {
     opacity: 0;
     transform: none;
     transition: all 600ms ease-out;
-    transform: translateY(-20px);
+    transform: translateY(-30px);
+    transition-delay: 300ms;
 }
 
 .inview-item.inview {
