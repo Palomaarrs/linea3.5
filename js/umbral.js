@@ -252,6 +252,14 @@ UmbralEffect.prototype.drawInternal = function() {
 		var r = this.processedImg.pixels[i];
 		var g = this.processedImg.pixels[i + 1];
 		var b = this.processedImg.pixels[i + 2];
+		var a = this.processedImg.pixels[i + 3]; // Canal alfa original
+
+		// Si el píxel es transparente, mantenerlo transparente sin procesar
+		if (a === 0) {
+			continue; // Mantiene la transparencia original
+		}
+
+		// Solo procesar píxeles que no sean transparentes
 		var brightness = (r + g + b) / 3;
 
 		// Si el brillo es mayor que el umbral, se hace transparente
