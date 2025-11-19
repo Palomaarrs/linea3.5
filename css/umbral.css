@@ -1,0 +1,106 @@
+/*
+* 1. CSS base
+*/
+body, html {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+/*
+* 2. Contenedor para el scroll simulado
+*/
+#scroll-container {
+	height: 600vh;
+	position: relative;
+	z-index: 0;
+}
+
+/*
+* 3. Imagen de fondo fija (simulada por un div con background-image)
+*/
+#fixed-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-image: url('tu_imagen.jpg'); /* !!! REEMPLAZA ESTO !!! */
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	z-index: 1; /* Para que esté detrás del canvas */
+	filter: grayscale(100%); /* Opcional: para que se vea como una capa diferente */
+}
+
+/*
+* 4. Estilos para elementos con efecto umbral
+*/
+/* Contenedor con efecto umbral - debe tener posición relativa */
+[data-umbral-effect],
+[id*="umbral"] {
+	position: relative;
+	overflow: hidden;
+}
+
+/* Imagen original dentro del contenedor - invisible pero mantiene pointer-events */
+[data-umbral-effect] img,
+[id*="umbral"] img {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Canvas de p5.js dentro del contenedor - posicionado absolutamente */
+[data-umbral-effect] canvas,
+[id*="umbral"] canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	image-rendering: -moz-crisp-edges; /* Firefox */
+	image-rendering: -webkit-crisp-edges; /* Safari/Chrome */
+	image-rendering: pixelated; /* Chrome */
+	image-rendering: crisp-edges; /* Estándar */
+}
+
+/*
+* 5. Estilos legacy para compatibilidad (deprecated)
+*/
+#p5-canvas-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 10;
+}
+
+#p5-canvas-container canvas {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+/* Estilo para el texto de umbral */
+#umbral-value {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	z-index: 100;
+}
+
+#umbral-img {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+

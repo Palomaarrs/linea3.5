@@ -3,216 +3,37 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Umbral de Color con Scroll y p5.js</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-		<style>
-			/*
-			* 1. CSS base
-			*/
-			body, html {
-				margin: 0;
-				padding: 0;
-				height: 100%;
-				font-family: sans-serif;
-				background-color: #333; /* Fondo para visualizar la transparencia */
-			}
-			
-			/*
-			* 2. Contenedor para el scroll simulado
-			*/
-			#scroll-container {
-				height: 600vh; /* La altura grande que solicitaste para el scroll */
-				position: relative;
-			}
-			
-			/*
-			* 3. Imagen de fondo fija (simulada por un div con background-image)
-			*/
-			#fixed-background {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100vh;
-				background-image: url('tu_imagen.jpg'); /* !!! REEMPLAZA ESTO !!! */
-				background-size: cover;
-				background-position: center center;
-				background-repeat: no-repeat;
-				z-index: 1; /* Para que esté detrás del canvas */
-				filter: grayscale(100%); /* Opcional: para que se vea como una capa diferente */
-			}
-			
-			/*
-			* 4. Estilos para el canvas de p5.js
-			*/
-			#p5-canvas-container {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100vh;
-				z-index: 10; /* Para que esté encima del fondo fijo */
-			}
-			
-			/* Estilo para el texto de instrucciones */
-			#instructions {
-				position: fixed;
-				top: 20px;
-				left: 20px;
-				color: white;
-				padding: 10px 15px;
-				background-color: rgba(0, 0, 0, 0.7);
-				border-radius: 5px;
-				z-index: 100;
-			}
-		</style>
+		<title>Umbral</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="stylesheet" href="https://use.typekit.net/dgl5fbo.css">
+		<link rel="stylesheet" href="./css/layout.css">
+		<link rel="stylesheet" href="./css/umbral.css">
 	</head>
 	<body>
+		<main class="container">
+			<div id="umbral-value">Umbral #<span id="threshold-value">0</span></div>
+			<div id="umbral-img">
+				<img src="./img/tiempo.png" alt="">
+			</div>
+		</main>
 
-		<div id="instructions">
-			Scroll hacia abajo para **eliminar el color blanco** de la imagen.<br>
-			**Umbral:** <span id="threshold-value">0</span>
-		</div>
+		<div id="scroll-container"></div>
 
-		<div id="p5-canvas-container"></div>
-
-		<div id="scroll-container">
-		</div>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+		<script src="./js/umbral.js"></script>
 		<script>
-			// ----------------------------------------------------
-			// --- ⚙️ CONFIGURACIÓN Y LÓGICA DE P5.JS ---
-			// ----------------------------------------------------
-			
-			// --- 1. Variables Globales ---
-			let img; // Imagen original cargada
-			let originalImgBuffer; // Buffer de la imagen original (nunca se modifica)
-			let processedImg; // Imagen procesada (copia que se modifica en cada frame)
-			const IMAGE_PATH = './img/tiempo.png';
-			let thresholdValueElement;
-			
-			// --- 2. Carga de la Imagen (preload) ---
-			function preload() {
-				img = loadImage(IMAGE_PATH,
-				// Callback de éxito:
-				() => console.log("Imagen cargada con éxito."),
-				// Callback de error:
-				(event) => console.error("Error al cargar la imagen. Asegúrate de que exista y de estar sirviendo el archivo con un servidor local.", event)
-				);
+			// Función helper para crear una instancia
+			function createUmbralEffect(selector, options) {
+				var instance = new UmbralEffect(selector, options);
+				umbralInstances.push(instance);
+				return instance;
 			}
 			
-			// --- 3. Configuración Inicial (setup) ---
-			function setup() {
-				// Crea el canvas que ocupará toda la ventana y lo adjunta al contenedor
-				const canvas = createCanvas(windowWidth, windowHeight);
-				canvas.parent('p5-canvas-container');
-				
-				// Configura el canvas para lectura frecuente (mejora el rendimiento)
-				canvas.elt.getContext('2d').willReadFrequently = true;
-				
-				// Asegura que la imagen tenga el tamaño del canvas
-				img.resize(width, height);
-				
-				// Guarda una copia del buffer original que nunca se modificará
-				originalImgBuffer = createImage(img.width, img.height);
-				originalImgBuffer.copy(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
-				
-				// Carga el elemento para mostrar el valor del umbral
-				thresholdValueElement = document.getElementById('threshold-value');
-				
-				// Dibuja la primera vez
-				draw();
-				
-				noLoop(); // Deshabilita el loop, lo llamaremos solo en el evento scroll
-			}
-			
-			// --- 4. Redimensionar Canvas al cambiar el tamaño de la ventana ---
-			function windowResized() {
-				resizeCanvas(windowWidth, windowHeight);
-				// Vuelve a dimensionar la imagen original
-				img.resize(width, height);
-				// Actualiza el buffer original con el nuevo tamaño
-				originalImgBuffer = createImage(img.width, img.height);
-				originalImgBuffer.copy(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
-				// Vuelve a dibujar la escena con la nueva dimensión
-				draw();
-			}
-			
-			// --- 5. Lógica principal de dibujo (draw) ---
-			function draw() {
-				clear(); // Limpia el canvas para la nueva iteración
-				
-				// Verifica que el buffer original esté disponible
-				if (!originalImgBuffer || originalImgBuffer.width === 0) {
-					return;
-				}
-				
-				// --- CÁLCULO DEL UMBRAL ---
-				// 1. Obtiene la posición de scroll
-				const scrollPos = window.scrollY;
-				
-				// 2. Obtiene la altura máxima de scroll (altura total del documento - altura de la ventana)
-				const maxScroll = document.documentElement.scrollHeight - windowHeight;
-				
-				// 3. Normaliza la posición de scroll a un valor entre 0 y 1
-				// Se usa clamp para evitar valores fuera de 0-1
-				const normalizedScroll = maxScroll > 0 ? constrain(scrollPos / maxScroll, 0, 1) : 0;
-				
-				// 4. Mapea el valor normalizado al rango del umbral (0 a 255)
-				// Cuando scroll es 0, threshold es 0. Cuando es el máximo, threshold es 255.
-				const threshold = floor(normalizedScroll * 255);
-				
-				// Actualiza el texto en pantalla
-				if (thresholdValueElement) {
-					thresholdValueElement.textContent = threshold;
-				}
-				
-				// --- PROCESAMIENTO DE PÍXELES ---
-				// SOLUCIÓN: Crear una copia fresca del buffer original en cada frame
-				// Esto garantiza que siempre procesamos desde la imagen original intacta
-				processedImg = createImage(originalImgBuffer.width, originalImgBuffer.height);
-				processedImg.copy(originalImgBuffer, 0, 0, originalImgBuffer.width, originalImgBuffer.height, 0, 0, originalImgBuffer.width, originalImgBuffer.height);
-				
-				// Carga los píxeles de la copia para manipulación
-				processedImg.loadPixels();
-				
-				for (let i = 0; i < processedImg.pixels.length; i += 4) {
-					// p5.js usa RGBA: [R, G, B, A, R, G, B, A, ...]
-					const r = processedImg.pixels[i];
-					const g = processedImg.pixels[i + 1];
-					const b = processedImg.pixels[i + 2];
-					
-					// El "color predominante" a eliminar es el BLANCO.
-					// Se calcula la 'brillantez' o valor de un píxel.
-					// El blanco puro es (255, 255, 255).
-					// Una forma simple de obtener la 'brillantez' es calcular el promedio.
-					const brightness = (r + g + b) / 3;
-					
-					// Lógica de Umbral:
-					// Si la brillantez del píxel es MAYOR que el umbral,
-					// se hace completamente transparente (Alpha = 0).
-					if (brightness > threshold) {
-						processedImg.pixels[i + 3] = 0; // i+3 es el canal Alpha
-						} else {
-							// Si no supera el umbral, se mantiene opaco
-							processedImg.pixels[i + 3] = 255;
-						}
-					}
-					
-					// Aplica los cambios a la imagen procesada
-					processedImg.updatePixels();
-					
-					// Dibuja la imagen procesada en el canvas
-					// El buffer original (originalImgBuffer) nunca se modifica
-					image(processedImg, 0, 0, width, height);
-				}
-				
-				// --- 6. Evento Scroll ---
-				// Llama a la función draw() (que contiene la lógica de procesamiento)
-				// cada vez que el usuario hace scroll.
-				window.addEventListener('scroll', () => {
-					draw();
-					});
+			createUmbralEffect('#umbral-img', {
+				imagePath: './img/tiempo.png',
+				usePixelatedRendering: true,
+				scrollContainer: '#scroll-container'
+				});
 		</script>
 	</body>
 </html>
