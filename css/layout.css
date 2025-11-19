@@ -208,10 +208,23 @@ element.style {
 
 .fijo-img {
      width: 100%;
-    height: 100%;
-    object-fit: cover;  
+     height: 100%;
+     object-fit: cover;
+     position: fixed;
+     left: 0;
+     top: 0;
+     padding: 0;
+     margin: 0;
 }
 
+.fijo-img img {
+    width: 100%;
+    top: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    transform: translateY(-50%);
+}
 .fijo-exp {
     position: fixed;
     top: 30%;
