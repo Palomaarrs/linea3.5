@@ -25,10 +25,11 @@ body, html {
 	left: 0;
 	width: 100%;
 	height: 100vh;
-	background-image: url('tu_imagen.jpg'); /* !!! REEMPLAZA ESTO !!! */
+	background-image: url("./img/indsvrds2.png"); /* !!! REEMPLAZA ESTO !!! */
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
+	background-color: transparent;
 	z-index: 1; /* Para que esté detrás del canvas */
 	filter: grayscale(100%); /* Opcional: para que se vea como una capa diferente */
 }
@@ -102,5 +103,5 @@ body, html {
 	position: fixed;
 	top: 0;
 	left: 0;
+	background-color: transparent	;
 }
-

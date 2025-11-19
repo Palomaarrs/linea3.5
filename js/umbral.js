@@ -16,7 +16,7 @@ function UmbralEffect(selector, options) {
 
 	// Obtener ruta de imagen
 	var imgElement = this.container.querySelector('img');
-	var defaultImagePath = imgElement && imgElement.src ? imgElement.src : './img/tiempo.png';
+	var defaultImagePath = imgElement && imgElement.src ? imgElement.src : './img/indsvrds2.png alt="';
 
 	// Opciones de configuración
 	this.options = {
