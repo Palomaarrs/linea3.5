@@ -97,8 +97,8 @@ p {
     margin-bottom: 41px;
     justify-content: right;
     margin-top: 40px;
-    container: 100%;
-
+    z-index: 9;
+    position: relative;
 }
 .nav-link {
     background-color: var( --accent-color);
