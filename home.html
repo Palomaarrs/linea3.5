@@ -14,54 +14,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
-    <link rel="stylesheet" href="./css/umbral.css">
+
     <title>Línea 3.5</title>
 </head>
 
 <body>
 
-  
-        <nav id="main-nav">
 
-            <a href="./dequetrata.html" class="nav-link" title="Conoce sobre línea 3.5">De que trata</a>
-            <a href="./indiosverdes.html" class="nav-link" title="Ir a experiencia">Experiencia</a>
-            <a href="./testimonios.html" class="nav-link" title="Ir a testimonios">Testimonios</a>
-        </nav>
-  
+    <nav id="main-nav">
+        <a href="./dequetrata.html" class="nav-link" title="Conoce sobre línea 3.5">De que trata</a>
+        <a href="./indiosverdes.html" class="nav-link" title="Ir a experiencia">Experiencia</a>
+        <a href="./testimonios.html" class="nav-link" title="Ir a testimonios">Testimonios</a>
+    </nav>
+
     <article class="container">
         <h1 class="fijo">Línea 3.5</h1>
     </article>
-    	
-		<main class="container">
-	
-			<div id="umbral-img">
-				<img src="./img/indsvrds2.png" alt="indiosverdes" width="1500">
-			</div>
-		</main>
 
-		<div id="scroll-container"></div>
+    <main class="container">
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-		<script src="./js/umbral.js"></script>
-		<script>
-			// Función helper para crear una instancia
-			function createUmbralEffect(selector, options) {
-				var instance = new UmbralEffect(selector, options);
-				umbralInstances.push(instance);
-				return instance;
-			}
-			
-			createUmbralEffect('#umbral-img', {
-				imagePath: "./img/indsvrds2.png",
-				usePixelatedRendering: true,
-				scrollContainer: '#scroll-container'
-				});
-		</script>
+        <div id="umbral-img">
+            <img src="./img/indsvrds2.png" alt="indiosverdes" width="1500">
+        </div>
+    </main>
+
+    <div id="scroll-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="./js/umbral.js"></script>
+    <script>
+        // Función helper para crear una instancia
+        function createUmbralEffect(selector, options) {
+            var instance = new UmbralEffect(selector, options);
+            umbralInstances.push(instance);
+            return instance;
+        }
+
+        createUmbralEffect('#umbral-img', {
+            imagePath: "./img/indsvrds2.png",
+            usePixelatedRendering: true,
+            scrollContainer: '#scroll-container'
+        });
+    </script>
 
 
-   
-        <figcaption>Proyecto enfocado en el recorte de la linea 7 de metrobus que se planeó de Indios Verdes a Santa Fe.
-        </figcaption>
+
+    <figcaption>Proyecto enfocado en el recorte de la linea 7 de metrobus que se planeó de Indios Verdes a Santa Fe.
+    </figcaption>
     </figure>
 
     <footer class="container">
@@ -74,8 +73,8 @@
         </nav>
     </footer>
 
-   
-    
+
+
 </body>
 
 </html>
