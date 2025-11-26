@@ -1,8 +1,8 @@
 :root {
     --font-family: "times-new-roman", sans-serif;
     --bg-color: #1d1d1b;
-    --accent-color:#1d1d1b;
-    --text-color:#ffffff;
+    --accent-color: #1d1d1b;
+    --text-color: #ffffff;
     --font-title: "relaxia", sans-serif;
     --hover-color: rgb(255, 255, 255);
     --link-color: #1d1d1b;
@@ -11,13 +11,16 @@
 html {
     box-sizing: border-box;
 }
-*, *::before, *::after {
+
+*,
+*::before,
+*::after {
     box-sizing: inherit;
 }
 
 body {
     font-family: var(--font-family);
-    background-color: var( --bg-color);
+    background-color: var(--bg-color);
     color: var(--text-color);
 }
 
@@ -31,15 +34,19 @@ body {
 }
 
 h1 {
-    font-family: var( --font-family);
+    font-family: var(--font-family);
     z-index: 10;
     margin-top: 20px;
     font-size: 8rem;
     margin-left: 5%;
 }
 
-h2, h3, h4, h5, h6 {
-    font-family: var( --font-family);
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family);
     margin-top: 30px;
 }
 
@@ -51,14 +58,14 @@ img {
 p {
     max-width: 83ch;
     text-align: left;
-    
+
     position: right;
     bottom: 120px;
     right: 40px;
     width: 100%;
     color: var(--text-color);
     padding: 10px;
-    
+
 }
 
 /* Contenedor de la imagen de hero */
@@ -100,10 +107,11 @@ p {
     z-index: 9;
     position: relative;
 }
+
 .nav-link {
-    background-color: var( --accent-color);
+    background-color: var(--accent-color);
     color: var(--text-color);
-    transition:all 100ms ease-in;
+    transition: all 100ms ease-in;
     padding: 10px;
     margin: 3px;
     display: inline-block;
@@ -116,13 +124,15 @@ p {
 .nav-link#back-link {
 
     margin-right: auto;
-    float:left;
+    float: left;
 }
+
 .nav-link:hover {
     background-color: var(--hover-color);
-    color: var( --link-color);
-    transition:all 300ms ease-out;
+    color: var(--link-color);
+    transition: all 300ms ease-out;
 }
+
 #footer-nav {
     display: flex;
     margin-bottom: 41px;
@@ -139,7 +149,7 @@ h3 {
 }
 
 .hero-image {
-    position:relative;
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -159,7 +169,7 @@ figcaption {
     padding-left: 25px;
     left: 0%;
     top: 50%;
-   
+
 }
 
 .hero-image figcaption {
@@ -175,7 +185,11 @@ figcaption {
     padding: 10px;
 }
 
-.button, button, input[type=button], input[type=reset], input[type=submit] {
+.button,
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
     display: inline-block;
     height: 38px;
     padding: 0 30px;
@@ -217,14 +231,14 @@ element.style {
 }
 
 .fijo-img {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     position: fixed;
-     left: 0;
-     top: 0;
-     padding: 0;
-     margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .fijo-img img {
@@ -235,6 +249,7 @@ element.style {
     left: 0;
     transform: translateY(-50%);
 }
+
 .fijo-exp {
     position: fixed;
     top: 30%;
@@ -247,27 +262,30 @@ element.style {
 * 2. Contenedor para el scroll simulado
 */
 #scroll-container {
-	height: 600vh;
-	position: relative;
-	z-index: 0;
+    height: 600vh;
+    position: relative;
+    z-index: 0;
 }
 
 /*
 * 3. Imagen de fondo fija (simulada por un div con background-image)
 */
 #fixed-background {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background-image: url("./img/indsvrds2.png"); /* !!! REEMPLAZA ESTO !!! */
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-color: transparent;
-	z-index: 1; /* Para que esté detrás del canvas */
-	filter: grayscale(100%); /* Opcional: para que se vea como una capa diferente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("./img/indsvrds2.png");
+    /* !!! REEMPLAZA ESTO !!! */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    z-index: 1;
+    /* Para que esté detrás del canvas */
+    filter: grayscale(100%);
+    /* Opcional: para que se vea como una capa diferente */
 }
 
 /*
@@ -276,71 +294,98 @@ element.style {
 /* Contenedor con efecto umbral - debe tener posición relativa */
 [data-umbral-effect],
 [id*="umbral"] {
-	position: relative;
-	overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Imagen original dentro del contenedor - invisible pero mantiene pointer-events */
 [data-umbral-effect] img,
 [id*="umbral"] img {
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Canvas de p5.js dentro del contenedor - posicionado absolutamente */
 [data-umbral-effect] canvas,
 [id*="umbral"] canvas {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	background-color: transparent;
-	image-rendering: -moz-crisp-edges; /* Firefox */
-	image-rendering: -webkit-crisp-edges; /* Safari/Chrome */
-	image-rendering: pixelated; /* Chrome */
-	image-rendering: crisp-edges; /* Estándar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: transparent;
+    image-rendering: -moz-crisp-edges;
+    /* Firefox */
+    image-rendering: -webkit-crisp-edges;
+    /* Safari/Chrome */
+    image-rendering: pixelated;
+    /* Chrome */
+    image-rendering: crisp-edges;
+    /* Estándar */
 }
 
 /*
 * 5. Estilos legacy para compatibilidad (deprecated)
 */
 #p5-canvas-container {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	z-index: 10;
-	background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background-color: transparent;
 }
 
 #p5-canvas-container canvas {
-	image-rendering: -moz-crisp-edges;
-	image-rendering: -webkit-crisp-edges;
-	image-rendering: pixelated;
-	image-rendering: crisp-edges;
-	background-color: transparent;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background-color: transparent;
 }
 
 /* Estilo para el texto de umbral */
 #umbral-value {
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	z-index: 100;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
 }
 
 #umbral-img {
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: transparent	;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+
+#video-progress {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    z-index: 100;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.input[type="range"]:{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
 }
