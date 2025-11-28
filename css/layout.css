@@ -444,8 +444,14 @@ input[type="range"]:focus::-moz-range-thumb{
   outline-offset: 0.125rem;
 }
 
-#perspective  {
+#perspective {
     position: fixed;
     right: 4%;
     bottom: 20px;
+}
+
+#video {
+    position: fixed;
+    right: 0%;
+    margin-right: 30px;
 }
