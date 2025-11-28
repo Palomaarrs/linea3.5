@@ -3,7 +3,6 @@ const progressBtn = document.getElementById('video-progress');
 const video = document.querySelector('video');
 
 function updateProgress(progress) {
-    progressBtn.value = parseInt(progress.toFixed(2));
     console.log("progress", progress);
     imgContainer.style.clipPath = `circle(${progress}% at 50% 50%)`;
 }
@@ -15,6 +14,7 @@ progressBtn.addEventListener('input', () => {
 });
 
 video.addEventListener('timeupdate', () => {
+    progressBtn.value = parseInt(progress.toFixed(2));
     const duration = video.duration;
     const progress = (video.currentTime / duration) * 100;
     console.log("progress", progress);
