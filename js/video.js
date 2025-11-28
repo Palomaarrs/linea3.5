@@ -3,7 +3,11 @@ const progressBtn = document.getElementById('video-progress');
 const video = document.querySelector('video');
 
 function updateProgress(progress) {
-    imgContainer.style.clipPath = `circle(${progress}% at 100% 0%)`;
+    const percent = (progress / progressBtn.max) * 100;
+    // Mostrar desde el borde derecho hacia la izquierda:
+    // inset(top right bottom left) — dejamos fuera la parte izquierda equivalente a (100 - percent)%
+    const leftInset = 100 - percent;
+    imgContainer.style.clipPath = `inset(0 0 0 ${leftInset}%)`;
 }
 
 progressBtn.addEventListener('input', () => {
@@ -13,7 +17,7 @@ progressBtn.addEventListener('input', () => {
 
 video.addEventListener('timeupdate', () => {
     const progress = parseInt(video.currentTime);
-    progressBtn.value = parseInt(progress.toFixed(2));
+    progressBtn.value = parseInt(progress);
     updateProgress(progress);
 });
 
