@@ -27,6 +27,7 @@ body {
     font-family: var(--font-family);
     background-color: var(--bg-color);
     color: var(--text-color);
+    font-size: 2.5em;
 }
 
 .fijo {
@@ -42,7 +43,7 @@ h1 {
    font-family: "tiempos1VF";
    z-index: 10;
    margin-top: 20px;
-   font-size: 46rem;
+   font-size: 25rem;
    margin-left: 5%;
    font-variation-settings: 'wght' 900;
 }
@@ -114,6 +115,9 @@ p {
     position: relative;
 }
 
+#main-nav  {
+    font-size: 0.73em;  
+}
 .nav-link {
     background-color: var(--accent-color);
     color: var(--text-color);
@@ -172,7 +176,7 @@ h3 {
 figcaption {
     display: block;
     unicode-bidi: isolate;
-    padding-left: 40px;
+    padding-left: 76px;
     left: 0%;
     top: 50%;
 }
