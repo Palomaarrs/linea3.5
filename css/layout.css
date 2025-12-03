@@ -36,7 +36,10 @@ body {
     left: 0;
     transform: translateY(-50%);
     padding-left: 25px;
-    font-size: 30rem;
+    font-size: 25rem;
+    letter-spacing: 0;
+    -webkit-text-stroke: 1px #1d1d1b;
+    z-index: -1;
 }
 
 h1 {
@@ -463,4 +466,6 @@ input[type="range"]:focus::-moz-range-thumb{
 #testimonios
 {
     float: right;
+    /* -webkit-text-stroke: .5px #1d1d1b; */
+    text-shadow: 4px 3px 2px #1d1d1b;
 }
