@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta property="og:title" content="linea 3.5">
+    <meta property="og:description" content="EL PRIVILEGIO DE LOS VECINOS DE LAS LOMAS">
+    <meta property="og:url" content="https://palomaarrs.github.io/linea3.5/">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dgl5fbo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
+
+    <title>Línea 3.5</title>
+     <!-- 
+    Favicon Generator: Real Favicon Generator
+    @see: https://realfavicongenerator.net
+    -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="apple-mobile-web-app-title" content="JuanFuent.es" />
+    <link rel="manifest" href="./static/site.webmanifest" />
+      <!-- 
+     @metadata: OpenGraph
+     @desc: The Open Graph protocol enables any web page to become a rich object in a social graph
+     @see: https://ogp.me/
+     -->
+    <meta name="title"                      content="JuanFuent.es - Web Developer & Creative Technologist">
+    <meta name='image'                      content='https://palomaarrs.github.io/linea3.5/img/tiempo.png'>
+    <meta name='description'                content='Specializing in innovative digital experiences through experimental web technologies, ensuring scalable and tailored web application solutions.'>
+    <meta name='keywords'                   content='fullstack, web developer, typography, webgl'>
+    <link rel="canonical"                   href="https://palomaarrs.github.io/linea3.5/">
+    <!-- Open Graph / Facebook -->
+    <meta property='og:image'               content='https://palomaarrs.github.io/linea3.5/img/tiempo.png'>
+    <meta property="og:image:type"          content="image/png"/>
+    <meta property="og:image:width"         content="1280"/>
+    <meta property="og:image:height"        content="640"/>
+    <meta property='og:description'         content='Specializing in innovative digital experiences through experimental web technologies, ensuring scalable and tailored web application solutions.'>
+    <meta property="og:url"                 content="https://palomaarrs.github.io/linea3.5/">
+    <!--
+     @metadata: Twitter Cards
+     @desc: With X Cards, you can attach rich photos, videos and media experiences to Tweets, helping to drive traffic to your website. 
+     @see: https://developer.x.com/en/docs/x-for-websites/cards/overview/markup
+     -->
+    <meta property="twitter:card"           content="summary_large_image">
+    <meta property="twitter:url"            content="https://palomaarrs.github.io/linea3.5/">
+    <meta property="twitter:title"          content="Web Developer & Creative Technologist">
+    <meta property="twitter:description"    content="Specializing in innovative digital experiences through experimental web technologies, ensuring scalable and tailored web application solutions.">
+    <meta property="twitter:image"          content="https://palomaarrs.github.io/linea3.5/img/tiempo.png">
+
+</head>
+
+<body>
+
+
+   <nav id="main-nav">
+		<a href="./dequetrata.html" class="nav-link" title="Conoce sobre línea 3.5">De qué trata</a>
+		<a href="./indiosverdes.html" class="nav-link" title="Ir a experiencia">Experiencia</a>
+        <a href="./testimonios.html" class="nav-link" title="Ir a testimonios">Testimonios</a>
+		
+	</nav>
+
+    <article class="container">
+        <h1 class="fijo">Línea 3.5</h1>
+    </article>
+
+    <main class="container">
+
+        <div id="umbral-img">
+            <img src="./img/indsvrds2.png" alt="indiosverdes" width="1500">
+        </div>
+    </main>
+
+    <div id="scroll-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="./js/umbral.js"></script>
+    <script>
+        // Función helper para crear una instancia
+        function createUmbralEffect(selector, options) {
+            var instance = new UmbralEffect(selector, options);
+            umbralInstances.push(instance);
+            return instance;
+        }
+
+        createUmbralEffect('#umbral-img', {
+            imagePath: "./img/indsvrds2.png",
+            usePixelatedRendering: true,
+            scrollContainer: '#scroll-container'
+        });
+    </script>
+
+
+
+    <figcaption>Proyecto enfocado en el recorte de la línea 7 de metrobus que se planeó de Indios Verdes a Santa Fe.
+    </figcaption>
+    </figure>
+
+    <footer class="container">
+        <nav id="footer-nav">
+            <a href="mailto: jpenah@centro.edu.mx" class="button">Contacto</a>
+        </nav>
+    </footer>
+
+
+
+</body>
+
+</html>
