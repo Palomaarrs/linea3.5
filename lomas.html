@@ -19,33 +19,32 @@
 
 <body>
 	<nav id="main-nav">
-		<a href="./home.html" class="nav-link" id="back-link" title="Regresa a inicio">&#8592 Regresa a inicio</a> 
-		<a href="./dequetrata.html" class="nav-link" title="Conoce sobre línea 3.5">De que trata</a>
+		<a href="./home.html" class="nav-link" id="back-link" title="Regresa a inicio">&#8592 Regresa a inicio</a>
+		<a href="./dequetrata.html" class="nav-link" title="Conoce sobre línea 3.5">De qué trata</a>
 		<a href="./testimonios.html" class="nav-link" title="Ir a testimonios">Testimonios</a>
 	</nav>
 	<article class="container">
-        <h1 class="fijo-exp">lomas de chapultepec</h1>
-    </article>
-
-		<figure class="fijo-img">
-        	<img src="./img/lomasescalada.png" alt="mapeolomas" width="1500">
-        
-    	</figure>
-
-			
-
-		</article>
+		<h1 class="fijo-exp">lomas de chapultepec</h1>
+	</article>
+	<section>
+		<figure class="video-fijo" id="video">
+		<video src="https://res.cloudinary.com/dufxjv3wn/video/upload/v1764263964/videoeditadowebcomp_pfa1jt.mp4"
+			playsinline muted autoplay width="600"></video>
+		</figure>
+		<figure class="fijo-img" id="mapa">
+			<img src="./img/lomasescalada.png" alt="mapeolomas" width="1500">
+		</figure>
 	</section>
 
-<footer class="container">
+	<footer class="container">
 		<div id="controls-container">
-			<input type="range" id="video-progress" min="0" max="360" value="0">
-            	<input type="range" id="perspective" min="0" max="360" value="0">
+			<input type="range" id="video-progress" min="0" max="240" value="0">
+			<input type="range" id="perspective" min="0" max="240" value="0">
 		</div>
-    </footer>
 
+	</footer>
 
-
+	<script src="./js/video.js"></script>
 </body>
 
 </html>
