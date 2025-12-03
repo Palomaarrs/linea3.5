@@ -3,7 +3,7 @@
     src: url("tiempos1VF.ttf") format("truetype");
 }
 :root {
-    --font-family: "times-new-roman", sans-serif;
+    --font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; 
     --bg-color: #1d1d1b;
     --accent-color: #1d1d1b;
     --text-color: #ffffff;
@@ -458,4 +458,9 @@ input[type="range"]:focus::-moz-range-thumb{
     position: fixed;
     right: 0%;
     margin-right: 30px;
+}
+
+#testimonios
+{
+    float: right;
 }
