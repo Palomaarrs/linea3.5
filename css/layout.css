@@ -1,6 +1,6 @@
 @font-face {
-    font-family: "tiempos1VF";
-    src: url("tiempos1VF.ttf") format("truetype");
+    font-family: "tiempos35VF";
+    src: url("tiempos35VF.ttf") format("truetype");
 }
 :root {
     --font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; 
@@ -38,12 +38,12 @@ body {
     padding-left: 25px;
     font-size: 25rem;
     letter-spacing: 0;
-    -webkit-text-stroke: 1px #1d1d1b;
+    /* -webkit-text-stroke: 1px #1d1d1b; */
     z-index: -1;
 }
 
 h1 {
-   font-family: "tiempos1VF";
+   font-family: "tiempos35VF";
    z-index: 10;
    margin-top: 20px;
    font-size: 25rem;
