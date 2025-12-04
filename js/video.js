@@ -1,5 +1,6 @@
 const imgContainer = document.querySelector('.fijo-img');
 const progressBtn = document.getElementById('video-progress');
+const inputPlace=document.getElementById('perspective');
 const video = document.querySelector('video');
 
 function updateProgress(progress) {
@@ -24,3 +25,12 @@ video.addEventListener('timeupdate', () => {
 video.addEventListener('ended', () => {
     progressBtn.value = 0;
 });
+
+inputPlace.addEventListener('change', () => {
+    const perspectiveValue = Number(inputPlace.value);
+    if (perspectiveValue === 0) {
+        window.location.href = 'indiosverdes.html';
+    } else if (perspectiveValue === 1) {
+        window.location.href = 'lomas.html';
+    }
+})
