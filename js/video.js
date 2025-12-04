@@ -1,8 +1,8 @@
 const imgContainer = document.querySelector('.fijo-img');
 const progressBtn = document.getElementById('video-progress');
-const inputPlace=document.getElementById('perspective');
+const inputPlace = document.getElementById('perspective');
 const video = document.querySelector('video');
-const title=document.querySelector('.fijo-exp');
+const title = document.querySelector('.fijo-exp');
 function updateProgress(progress) {
     const percent = (progress / progressBtn.max) * 100;
     // Mostrar desde el borde derecho hacia la izquierda:
@@ -38,5 +38,5 @@ inputPlace.addEventListener('change', () => {
 
 inputPlace.addEventListener('input', () => {
     const perspectiveValue = Number(inputPlace.value);
-    title.style.fontVariationSettings=`'wght' ${100 + perspectiveValue * 7}`;
+    title.style.fontVariationSettings = `'wght' ${100 + perspectiveValue * 7}`;
 })
