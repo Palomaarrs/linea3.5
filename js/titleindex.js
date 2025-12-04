@@ -1,4 +1,4 @@
- const title=document.querySelector('.fijo');
+    const title=document.querySelector('.fijoindex');
     window.addEventListener('scroll',function(){
         const scrollY=window.scrollY;
         const maxScroll=document.body.getBoundingClientRect().height-window.innerHeight;
@@ -9,4 +9,3 @@
         title.style.fontVariationSettings=`'wght' ${100 + x}`;
         console.log(x);
     });
- 

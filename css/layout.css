@@ -1,6 +1,6 @@
 @font-face {
-    font-family: "tiempos35VF";
-    src: url("tiempos35VF.ttf") format("truetype");
+    font-family: "tiempos3punto5VF";
+    src: url("tiempos3punto5VF.woff2") format("truetype");
 }
 :root {
     --font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; 
@@ -36,14 +36,26 @@ body {
     left: 0;
     transform: translateY(-50%);
     padding-left: 25px;
-    font-size: 25rem;
+    font-size: 19rem;
+    letter-spacing: 0;
+    /* -webkit-text-stroke: 1px #1d1d1b; */
+    z-index: -1;
+}
+
+.fijoindex {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding-left: 25px;
+    font-size: 26rem;
     letter-spacing: 0;
     /* -webkit-text-stroke: 1px #1d1d1b; */
     z-index: -1;
 }
 
 h1 {
-   font-family: "tiempos35VF";
+   font-family: "tiempos3punto5VF";
    z-index: 10;
    margin-top: 20px;
    font-size: 25rem;
@@ -469,3 +481,5 @@ input[type="range"]:focus::-moz-range-thumb{
     /* -webkit-text-stroke: .5px #1d1d1b; */
     text-shadow: 4px 3px 2px #1d1d1b;
 }
+
+
