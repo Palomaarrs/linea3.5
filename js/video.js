@@ -3,6 +3,7 @@ const progressBtn = document.getElementById('video-progress');
 const inputPlace = document.getElementById('perspective');
 const video = document.querySelector('video');
 const title = document.querySelector('.fijo-exp');
+const videoMessage = document.getElementById('video-message');
 function updateProgress(progress) {
     const percent = (progress / progressBtn.max) * 100;
     // Mostrar desde el borde derecho hacia la izquierda:
@@ -20,6 +21,16 @@ video.addEventListener('timeupdate', () => {
     const progress = parseInt(video.currentTime);
     progressBtn.value = parseInt(progress);
     updateProgress(progress);
+    
+    // Mostrar mensaje cuando el video alcance el tiempo meta
+    const videoDuration = video.duration || progressBtn.max;
+    const tiempo_meta = videoDuration / 2; // en este caso es la mitad del video
+    
+    if (video.currentTime >= tiempo_meta && videoMessage) {
+        videoMessage.style.display = 'block';
+    } else if (video.currentTime < tiempo_meta && videoMessage) {
+        videoMessage.style.display = 'none';
+    }
 });
 
 video.addEventListener('ended', () => {
@@ -35,8 +46,14 @@ inputPlace.addEventListener('change', () => {
     }
 })
 
-
 inputPlace.addEventListener('input', () => {
     const perspectiveValue = Number(inputPlace.value);
     title.style.fontVariationSettings = `'wght' ${100 + perspectiveValue * 7}`;
 })
+
+updateProgress(0);
+
+// Ocultar el mensaje inicialmente
+if (videoMessage) {
+    videoMessage.style.display = 'none';
+}
