@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/layout.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
     <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="icon" type="image/png" href="./img/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
@@ -60,33 +60,38 @@
 </head>
 
 <body>
-	<nav id="main-nav">
-		<a href="./" class="nav-link" id="back-link" title="Regresa a inicio">&#8592 Regresa a inicio</a>
-		<a href="./dequetrata.html" class="nav-link" title="Conoce sobre línea 3.5">De qué trata</a>
-		<a href="./testimonios.html" class="nav-link" title="Ir a testimonios">Testimonios</a>
-	</nav>
-	<article class="container">
-		<h1 class="fijo-exp">lomas de chapultepec</h1>
-	</article>
-	<section>
-		<figure class="video-fijo" id="video">
-		<video src="https://res.cloudinary.com/dufxjv3wn/video/upload/v1764806470/videoweblomas2comp2_iamurn.mp4"
-			playsinline muted autoplay width="700"></video>
-		</figure>
-		<figure class="fijo-img" id="mapa">
-			<img src="./img/lomasescalada.png" alt="mapeolomas" width="1500">
-		</figure>
-	</section>
+    <nav id="main-nav">
+        <a href="./" class="nav-link" id="back-link" title="Regresa a inicio">&#8592 Regresa a inicio</a>
+        <a href="./dequetrata.html" class="nav-link" title="Conoce sobre línea 3.5">De qué trata</a>
+        <a href="./testimonios.html" class="nav-link" title="Ir a testimonios">Testimonios</a>
+    </nav>
+    <article class="container">
+        <h1 class="fijo-exp">lomas de chapultepec</h1>
+    </article>
+    <section>
+        <figure class="video-fijo" id="video">
+            <video src="https://res.cloudinary.com/dufxjv3wn/video/upload/v1764806470/videoweblomas2comp2_iamurn.mp4"
+                playsinline muted autoplay width="700"></video>
+        </figure>
+        <figure class="fijo-img" id="mapa">
+            <img src="./img/lomasescalada.png" alt="mapeolomas" width="1500">
+        </figure>
+        </figure>
+			  <div id="video-message">
+                Despierta...
+            </div>
+    </section>
 
-	<footer class="container">
-		<div id="controls-container">
-			<input type="range" id="video-progress" min="0" max="240" value="0">
-			<input type="range" id="perspective" min="0" max="1" value="1">
-		</div>
+    <footer class="container">
+        <div id="controls-container">
+          
+            <input type="range" id="video-progress" min="0" max="240" value="0">
+            <input type="range" id="perspective" min="0" max="1" value="1">
+        </div>
 
-	</footer>
+    </footer>
 
-	<script src="./js/videolomas.js"></script>
+    <script src="./js/video.js"></script>
 </body>
 
 </html>

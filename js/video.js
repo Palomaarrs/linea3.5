@@ -24,7 +24,7 @@ video.addEventListener('timeupdate', () => {
     
     // Mostrar mensaje cuando el video alcance el tiempo meta
     const videoDuration = video.duration || progressBtn.max;
-    const tiempo_meta = videoDuration / 2; // en este caso es la mitad del video
+    const tiempo_meta = videoDuration / 1.145; // en este caso es la mitad del video
     
     if (video.currentTime >= tiempo_meta && videoMessage) {
         videoMessage.style.display = 'block';
