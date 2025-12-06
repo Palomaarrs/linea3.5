@@ -4,11 +4,24 @@ const inputPlace = document.getElementById('perspective');
 const video = document.querySelector('video');
 const title = document.querySelector('.fijo-exp');
 const videoMessage = document.getElementById('video-message');
+
+// Obtener el tiempo de inicio desde el atributo data-start
+const dataStart = parseFloat(video.getAttribute('data-start')) || 0;
+
 function updateProgress(progress) {
-    const percent = (progress / progressBtn.max) * 100;
+    const videoDuration = video.duration || progressBtn.max;
+    const effectiveDuration = videoDuration - dataStart;
+    
+    // Calcular el progreso relativo desde data-start
+    const relativeProgress = Math.max(0, progress - dataStart);
+    const percent = effectiveDuration > 0 ? (relativeProgress / effectiveDuration) * 100 : 0;
+    
+    // Limitar el porcentaje entre 0 y 100
+    const clampedPercent = Math.min(100, Math.max(0, percent));
+    
     // Mostrar desde el borde derecho hacia la izquierda:
     // inset(top right bottom left) — dejamos fuera la parte izquierda equivalente a (100 - percent)%
-    const leftInset = 100 - percent;
+    const leftInset = 100 - clampedPercent;
     imgContainer.style.clipPath = `inset(0 0 0 ${leftInset}%)`;
 }
 
@@ -23,8 +36,10 @@ video.addEventListener('timeupdate', () => {
     updateProgress(progress);
     
     // Mostrar mensaje cuando el video alcance el tiempo meta
+    // El tiempo meta se calcula basándose en la duración efectiva desde data-start
     const videoDuration = video.duration || progressBtn.max;
-    const tiempo_meta = videoDuration / 1.145; // en este caso es la mitad del video
+    const effectiveDuration = videoDuration - dataStart;
+    const tiempo_meta = dataStart + (effectiveDuration / 1.145); // tiempo meta relativo desde data-start
     
     if (video.currentTime >= tiempo_meta && videoMessage) {
         videoMessage.style.display = 'block';
