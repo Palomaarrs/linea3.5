@@ -39,7 +39,7 @@ video.addEventListener('timeupdate', () => {
     // El tiempo meta se calcula basándose en la duración efectiva desde data-start
     const videoDuration = video.duration || progressBtn.max;
     const effectiveDuration = videoDuration - dataStart;
-    const tiempo_meta = dataStart + (effectiveDuration / 1.145); // tiempo meta relativo desde data-start
+    const tiempo_meta = dataStart + (effectiveDuration / 1.25); // tiempo meta relativo desde data-start
     
     if (video.currentTime >= tiempo_meta && videoMessage) {
         videoMessage.style.display = 'block';
